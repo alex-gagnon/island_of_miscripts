@@ -22,6 +22,7 @@ Run `pytest .\pyisland\` to run tests.
 ### Setup with Docker
 
 Run `docker build -t <image-name> .\pyisland\`
+
 Run `docker run -it --rm <container-name> <image-name>`
 
 ### Classic Problems

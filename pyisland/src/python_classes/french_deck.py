@@ -41,10 +41,10 @@ class FrenchDeck(MutableSequence):
 
 
 class Hand:
-    def __init__(self):
+    def __init__(self, hand=None):
         self.deck = FrenchDeck()
         self.deck.shuffle_deck()
-        self.hand = None
+        self.hand = hand
     
     def __len__(self):
         return len(self.hand)

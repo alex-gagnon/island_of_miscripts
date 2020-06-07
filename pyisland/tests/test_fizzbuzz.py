@@ -1,13 +1,12 @@
 import pytest
 
-from . import classic_problems
-
+from src.classic_problems.fizzbuzz import fizzbuzz
 
 @pytest.mark.parametrize('n', (
         51, 101, 151, 201
 ))
 def test_fizzbuzz(n):
-    response = classic_problems.fizzbuzz(n)
+    response = fizzbuzz(n)
     for index, num in enumerate(range(1, n)):
         if index == 2:
             assert response[index] == "Fizz"

@@ -1,6 +1,6 @@
 from collections import defaultdict
 from random import choice
-from pyisland.python_classes.french_deck import FrenchDeck, Hand
+from .french_deck import FrenchDeck, Hand
 
 
 class Poker:

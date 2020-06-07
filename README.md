@@ -11,13 +11,18 @@ Random bits of scripts and code so I'm not reinventing the wheel over and over.
 
 Home of the miscreant python scripts.
 
-### Setup
+### Setup without Docker
 
 Run `pip install -e .\pyisland\` to get setup.
 
-### Testing
+#### Testing
 
 Run `pytest .\pyisland\` to run tests.
+
+### Setup with Docker
+
+Run `docker build -t <image-name> .\pyisland\`
+Run `docker run -it --rm <container-name> <image-name>`
 
 ### Classic Problems
 

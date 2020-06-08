@@ -1,52 +1,27 @@
 import pytest
 import os
-from src.classic_problems.poker import Card, Poker, create_player_hands, play
+from src.classic_problems.poker import play
 
 poker_examples = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'resources', 'poker.txt')
+# with open(poker_examples, 'r') as f:
+#     hands = f.readlines()
 
+hands = [
+    # By Pair of Eights
+    ("5H 5C 6S 7S KD 2C 3S 8S 8D TD", "Player 2"),
+    # By Highest Card Ace
+    ("5D 8C 9S JS AC 2C 5C 7D 8S QH", "Player 1"),
+    # By Flush with Diamonds
+    ("2D 9C AS AH AC 3D 6D 7D TD QD", "Player 2"),
+    # By Pair of Queens -> Highest Card Nine
+    ("4D 6S 9H QH QC 3D 6D 7H QD QS", "Player 1"),
+    # By Full House with 3 Fours
+    ("2H 2D 4C 4D 4S 3C 3D 3S 9S 9D", "Player 1"),
+    # By Royal Flush
+    ("TS JS QS KS AS QH JH TH 9H 8H", "Player 1")
+]
 
-with open(poker_examples, 'r') as f:
-    hands = f.readlines()
-
-class TestPokerInitialValues:
-    player = Poker(hands[0].split()[:5])
-
-    def test_poker_str(self):
-        assert isinstance(str(self.player), str)
-    
-    def test_poker_hand(self):
-        assert isinstance(self.player.hand, list)
-
-    def test_poker_ranks(self):
-        expected_ranks = [str(n) for n in range(2, 10)] + list("TJQKA")
-        assert self.player.ranks == expected_ranks
-
-    # def test_card_value_order(self):
-    #     expected_rank_value_order = {rank: value+2 for value, rank in enumerate(self.player.ranks)}
-    #     assert self.player.rank_value_order == expected_rank_value_order
-
-
-@pytest.mark.parametrize('hands', hands)
-def test_poker_hands_are_split(hands):
-    player_1, player_2 = create_player_hands(hands)
-    assert len(player_1.hand) == 5
-    assert len(player_2.hand) == 5
-
-@pytest.mark.parametrize('hands', hands)
-def test_poker_hands_are_parsed_into_card_objects(hands):
-    player_1, player_2 = create_player_hands(hands)
-    def check_card_instances(hand):
-        for card in hand:
-            assert isinstance(card, Card)
-            assert isinstance(card.rank, str)
-            assert isinstance(card.suit, str)
-            assert card.rank in player_1.ranks
-            assert card.suit in list("SHCD")
-    
-    check_card_instances(player_1.hand)
-    check_card_instances(player_2.hand)
-
-@pytest.mark.parametrize('hands', hands)
-def test_winning_poker_hand(hands):
+@pytest.mark.parametrize("hands, winner", hands)
+def test_poker_game(hands, winner):
     result = play(hands)
-    print(hands[0])
+    assert result == winner

@@ -26,15 +26,6 @@ Home of the miscreant python scripts.
 
 1. Run `pip install -r .\pyisland\requirements.txt` to install packages.
 
-#### Create a virtual environment
-Run `pip install virtualenv` to install the virtualenv package
-Run `virtualenv .\pyisland\.venv` to create a virtualenv location
-Run `.\pyisland\Scripts\activate` to start up the virtualenv
-* Note - to deactivate the virtualenv, input `deactivate`
-
-#### Install packages within the virtualenv
-Run `pip install -r .\pyisland\requirements.txt` to install packages.
-
 #### Testing
 
 1. Run `pytest .\pyisland\` to run tests.

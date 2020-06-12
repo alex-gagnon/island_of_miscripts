@@ -13,26 +13,27 @@ Home of the miscreant python scripts.
 
 ### Setup without Docker
 
-Run `pip install -e .\pyisland\` to get setup.
+1. Run `pip install -e .\pyisland\` to get setup.
 
 #### Create a virtual environment
-Run `pip install virtualenv` to install the virtualenv package
-Run `virtualenv .\pyisland\.venv` to create a virtualenv location
-Run `.\pyisland\Scripts\activate` to start up the virtualenv
+
+1. Run `pip install virtualenv` to install the virtualenv package
+2. Run `virtualenv .\pyisland\.venv` to create a virtualenv location
+3. Run `.\pyisland\Scripts\activate` to start up the virtualenv
 * Note - to deactivate the virtualenv, input `deactivate`
 
 #### Install packages within the virtualenv
-Run `pip install -r .\pyisland\requirements.txt` to install packages.
+
+1. Run `pip install -r .\pyisland\requirements.txt` to install packages.
 
 #### Testing
 
-Run `pytest .\pyisland\` to run tests.
+1. Run `pytest .\pyisland\` to run tests.
 
 ### Setup with Docker
 
-Run `docker build -t <image-name> .\pyisland\`
-
-Run `docker run -it --rm <container-name> <image-name>`
+1. Run `docker build -t <image-name> .\pyisland\`
+2. Run `docker run -it --rm <container-name> <image-name>`
 
 ### Classic Problems
 
